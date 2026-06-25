@@ -7,8 +7,8 @@ import mongoDb from "./src/db/db.js"
 
 
 mongoDb().then(()=>{
-    app.listen(process.env.PORT,()=>{
-        console.log("server is running "); 
+    app.listen(process.env.PORT, '0.0.0.0', ()=>{
+        console.log("server is running ");
     })
 })
 
