@@ -29,14 +29,15 @@ const sendRequest = asyncHandler(async(req , res )=>{
  )
 })
 const acceptRequest = asyncHandler(async(req , res )=>{
-    const {id}=req.params 
-    const myId = req.user.id 
+    const {id}=req.params
+    const myId = req.user.id
+    // sendRequest ne already requester ka ID mere array mein daal diya tha
+    // ab sirf requester ke array mein mera ID daalna hai
     await userModel.findByIdAndUpdate(id,{$push:{connection: myId}})
-     await userModel.findByIdAndUpdate(myId,{$push:{connection: id}})
  return  res
- .status(201)
+ .status(200)
  .json(
-    new ApiResponse(201,{},"request accepted")
+    new ApiResponse(200,{},"request accepted")
  )
 })
 const removeRequest = asyncHandler(async(req , res )=>{
@@ -45,9 +46,9 @@ const removeRequest = asyncHandler(async(req , res )=>{
     await userModel.findByIdAndUpdate(id,{$pull:{connection: myId}})
      await userModel.findByIdAndUpdate(myId,{$pull:{connection: id}})
  return  res
- .status(201)
+ .status(200)
  .json(
-    new ApiResponse(201,{},"request accepted")
+    new ApiResponse(200,{},"connection removed")
  )
 })
 

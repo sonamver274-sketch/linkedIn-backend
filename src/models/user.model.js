@@ -28,7 +28,8 @@ const userSchema= new Schema(
         connection:[{
             type:mongoose.Schema.Types.ObjectId , ref:"User"
         }]
-    }
+    },
+    { timestamps: true }
 )
 
 export default mongoose.model("User",userSchema)
