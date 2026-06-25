@@ -8,6 +8,7 @@ import postRouter from "./src/routes/post.route.js"
 import notificationRouter from "./src/routes/notification.route.js"
 import messageRouter from "./src/routes/message.route.js"
 import jobRouter from "./src/routes/job.route.js"
+import uploadRouter from "./src/routes/upload.route.js"
 
 const app = express()
 app.use(cookieParser())
@@ -24,5 +25,6 @@ app.use("/api/post", postRouter)
 app.use("/api/notification", notificationRouter)
 app.use("/api/message", messageRouter)
 app.use("/api/job", jobRouter)
+app.use("/api/upload", uploadRouter)
 
 export default app 
